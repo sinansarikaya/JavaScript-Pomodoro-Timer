@@ -8,7 +8,13 @@
     <title>Pomodoro Timer</title>
   </head>
   <body>
-    <div id="countdown">1:00</div>
+    <div class="btn-container" id="mode-btns">
+      <button class="test active" data-mode="pomodoro">Pomodoro</button>
+      <button class="test" data-mode="short">Short Break</button>
+      <button class="test" data-mode="long">Long Break</button>
+    </div>
+
+    <span id="countdown">1:00</span>
     <input type="submit" value="Start" class="actionBtn" />
     <script src="./js/app.js"></script>
   </body>
