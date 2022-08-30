@@ -1,3 +1,8 @@
+const countdownEl = document.getElementById("countdown");
+const actionEl = document.querySelector(".actionBtn");
+const modeBtns = document.querySelector("#mode-btns");
+// const modeBtns = document.querySelectorAll(".test");
+
 const timeData = {
   pomodoro: 25,
   shortBreak: 1,
@@ -6,9 +11,6 @@ const timeData = {
 };
 
 let time = timeData.shortBreak * 60;
-
-const countdownEl = document.getElementById("countdown");
-const actionEl = document.querySelector(".actionBtn");
 
 const timer = () => {
   const minutes = Math.floor(time / 60);
@@ -28,5 +30,7 @@ actionEl.addEventListener("click", () => {
   timeData.status = !timeData.status;
   actionEl.value = actionEl.value == "Start" ? "Stop" : "Start";
 });
-
+modeBtns.addEventListener("click", (e) => {
+  console.log(e.target.dataset.mode);
+});
 setInterval(timer, 1000);
