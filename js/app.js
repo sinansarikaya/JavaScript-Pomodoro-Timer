@@ -33,4 +33,5 @@ actionEl.addEventListener("click", () => {
 modeBtns.addEventListener("click", (e) => {
   console.log(e.target.dataset.mode);
 });
+
 setInterval(timer, 1000);
