@@ -3,3 +3,16 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: brown;
+}
+#container {
+  display: flex;
+  color: #fff;
+  font-size: 20px;
+  height: 100vh;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

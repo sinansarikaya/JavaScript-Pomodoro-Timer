@@ -5,23 +5,23 @@ const modeBtns = document.querySelector("#mode-btns");
 
 const timeData = {
   pomodoro: 25,
-  shortBreak: 1,
+  shortBreak: 5,
   longBreak: 15,
   status: false,
 };
 
 let time = timeData.shortBreak * 60;
 
-const timer = () => {
-  const minutes = Math.floor(time / 60);
-  let seconds = time % 60;
+const timer = (t) => {
+  const minutes = Math.floor(t / 60);
+  let seconds = t % 60;
 
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
   countdownEl.innerHTML = `${minutes}:${seconds}`;
-  if (time > 0 && timeData.status === true) {
-    time--;
-    time = time;
+  if (t > 0 && timeData.status === true) {
+    t--;
+    time = t;
   }
   return time;
 };
@@ -31,7 +31,17 @@ actionEl.addEventListener("click", () => {
   actionEl.value = actionEl.value == "Start" ? "Stop" : "Start";
 });
 modeBtns.addEventListener("click", (e) => {
-  console.log(e.target.dataset.mode);
+  const mode = e.target.dataset.mode;
+  if (mode === "pomodoro") {
+    time = timeData.pomodoro * 60;
+    checkTime(setTime);
+  } else if (mode === "short") {
+    time = timeData.shortBreak * 60;
+    checkTime(setTime);
+  } else if (mode === "long") {
+    time = timeData.longBreak * 60;
+  }
+  return time;
 });
 
-setInterval(timer, 1000);
+setInterval(() => timer(time), 1000);
