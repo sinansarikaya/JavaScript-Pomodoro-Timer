@@ -16,3 +16,6 @@ body {
   justify-content: center;
   align-items: center;
 }
+.active {
+  background-color: yellow;
+}
