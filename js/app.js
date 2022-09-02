@@ -57,11 +57,15 @@ const start = () => {
 const btnControl = () => {
   timeData.status = !timeData.status;
 
-  if (actionEl.value == "Start") {
-    actionEl.value = "Stop";
+  if (actionEl.classList == "fa-solid actionBtn fa-play") {
+    actionEl.classList.remove("fa-play");
+    actionEl.classList.add("fa-pause");
+    console.log(actionEl);
     start();
   } else {
-    actionEl.value = "Start";
+    actionEl.classList.remove("fa-pause");
+    actionEl.classList.add("fa-play");
+    console.log(actionEl);
     clearInterval(interval);
   }
 };

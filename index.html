@@ -4,19 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
     <title>Pomodoro Timer</title>
   </head>
   <body>
     <div id="container">
+      <div class="social">
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
       <div class="btn-container" id="mode-btns">
-        <button class="active" data-mode="pomodoro">Pomodoro</button>
-        <button data-mode="short">Short Break</button>
-        <button data-mode="long">Long Break</button>
+        <button class="btn active" data-mode="pomodoro">Pomodoro</button>
+        <button class="btn" data-mode="short">Short Break</button>
+        <button class="btn" data-mode="long">Long Break</button>
       </div>
 
-      <span id="countdown">2:00</span>
-      <input type="submit" value="Start" class="actionBtn" />
+      <div id="countdown">2:00</div>
+      <div class="info">
+        <span>You are now in pomodoro time</span>
+        <i class="fa-solid fa-book"></i>
+        <br />
+        <span>You are now in short break <i class="fa-solid fa-bed"></i> </span>
+        <br />
+        <span>You are now in long break <i class="fa-solid fa-bed"></i> </span>
+      </div>
+
+      <i class="fa-solid actionBtn fa-play"></i>
     </div>
     <script src="./js/app.js"></script>
   </body>
