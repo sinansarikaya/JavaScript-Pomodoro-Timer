@@ -4,18 +4,53 @@
   box-sizing: border-box;
 }
 body {
-  background-color: brown;
+  font-family: "Inter", sans-serif;
 }
 #container {
   display: flex;
   color: #fff;
-  font-size: 20px;
   height: 100vh;
-  width: 50%;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #2c394b;
+  gap: 2rem;
 }
-.active {
-  background-color: yellow;
+#container .social {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+}
+#container .btn-container {
+  display: flex;
+  gap: 2rem;
+}
+#container .btn-container .btn {
+  color: #fff;
+  background-color: #f05454;
+  outline: none;
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+}
+#container .btn-container .btn.active {
+  border: 2px solid #fff;
+}
+#countdown {
+  font-size: 6em;
+  font-weight: 700;
+  border: 5px solid rgba(8, 32, 50, 35%);
+  border-radius: 50%;
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.actionBtn {
+  color: #f05454;
+  font-size: 7rem;
+  cursor: pointer;
 }
