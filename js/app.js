@@ -8,8 +8,12 @@ const shadowBg = document.querySelector(".shadowBg");
 const faXmark = document.querySelector(".fa-xmark");
 const infoBox = document.querySelector(".infoBox");
 
-const workSound = new Audio("../sounds/work.mp3");
-const breakSound = new Audio("../sounds/break.mp3");
+const workSound = new Audio(
+  "https://sinansarikaya.github.io/JavaScript-Pomodoro-Timer/sounds/work.mp3"
+);
+const breakSound = new Audio(
+  "https://sinansarikaya.github.io/JavaScript-Pomodoro-Timer/sounds/break.mp3"
+);
 
 const circle = document.getElementById("circle2");
 const minute = document.getElementById("minute");
@@ -88,12 +92,10 @@ const btnControl = () => {
   if (actionEl.classList == "fa-solid actionBtn fa-play") {
     actionEl.classList.remove("fa-play");
     actionEl.classList.add("fa-pause");
-    console.log(actionEl);
     start();
   } else {
     actionEl.classList.remove("fa-pause");
     actionEl.classList.add("fa-play");
-    console.log(actionEl);
     clearInterval(interval);
   }
 };
