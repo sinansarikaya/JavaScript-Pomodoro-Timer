@@ -2,11 +2,19 @@ const countdownEl = document.getElementById("countdown");
 const actionEl = document.querySelector(".actionBtn");
 const modeBtns = document.querySelector("#mode-btns");
 const allModes = document.querySelectorAll("button[data-mode]");
+const info = document.querySelector(".info");
 
+const circle = document.getElementById("circle2");
+const minute = document.getElementById("minute");
+const second = document.getElementById("second");
+const length = circle.getTotalLength();
+circle.style.strokeDasharray = length;
+circle.style.strokeDashoffset = length;
+console.log(length);
 const timeData = {
-  pomodoro: 2,
-  shortBreak: 1,
-  longBreak: 3,
+  pomodoro: 25,
+  shortBreak: 5,
+  longBreak: 15,
   cycle: 1,
   mode: "pomodoro",
   status: false,
@@ -14,15 +22,19 @@ const timeData = {
 let interval;
 let time = timeData.pomodoro * 60;
 
+let count = time;
+
 const timer = (t) => {
   const minutes = Math.floor(t / 60);
   let seconds = t % 60;
 
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  countdownEl.innerHTML = `${minutes}:${seconds}`;
+  minute.innerHTML = minutes;
+  second.innerHTML = seconds;
   if (t > 0 && timeData.status === true) {
     t--;
+    circle.style.strokeDashoffset = length - (t / count) * length;
     time = t;
   }
 
@@ -34,6 +46,7 @@ const timer = (t) => {
           changeMode("long");
         } else {
           timeData.mode = "short";
+
           changeMode("short");
         }
         break;
@@ -51,7 +64,7 @@ const timer = (t) => {
 };
 
 const start = () => {
-  interval = setInterval(() => timeData.status === true && timer(time), 10);
+  interval = setInterval(() => timeData.status === true && timer(time), 1000);
 };
 
 const btnControl = () => {
@@ -86,16 +99,29 @@ const changeMode = (m) => {
     timeData.cycle += 1;
     timeData.mode = "pomodoro";
     time = timeData.pomodoro * 60;
-    countdownEl.innerHTML = `${timeData.pomodoro}:00`;
+    minute.innerHTML = timeData.pomodoro;
+    second.innerHTML = "00";
+    info.innerHTML = `
+      <span>You are now in pomodoro time </span>
+      <i class="fa-solid fa-book"></i>`;
   } else if (m === "short") {
     timeData.mode = "short";
     time = timeData.shortBreak * 60;
-    countdownEl.innerHTML = `${timeData.shortBreak}:00`;
+    minute.innerHTML = timeData.shortBreak;
+    second.innerHTML = "00";
+    info.innerHTML = `
+      <span>You are now in short break </span>
+      <i class="fa-solid fa-bed"></i> `;
   } else if (m === "long") {
     timeData.mode = "long";
     time = timeData.longBreak * 60;
-    countdownEl.innerHTML = `${timeData.longBreak}:00`;
+    minute.innerHTML = timeData.longBreak;
+    second.innerHTML = "00";
+    info.innerHTML = `
+      <span>You are now in long break </span>
+      <i class="fa-solid fa-bed"></i>`;
   }
+  count = time;
 
   return time;
 };
