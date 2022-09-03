@@ -3,6 +3,13 @@ const actionEl = document.querySelector(".actionBtn");
 const modeBtns = document.querySelector("#mode-btns");
 const allModes = document.querySelectorAll("button[data-mode]");
 const info = document.querySelector(".info");
+const timerInfo = document.querySelector(".timer-info");
+const shadowBg = document.querySelector(".shadowBg");
+const faXmark = document.querySelector(".fa-xmark");
+const infoBox = document.querySelector(".infoBox");
+
+const workSound = new Audio("../sounds/work.mp3");
+const breakSound = new Audio("../sounds/break.mp3");
 
 const circle = document.getElementById("circle2");
 const minute = document.getElementById("minute");
@@ -10,7 +17,16 @@ const second = document.getElementById("second");
 const length = circle.getTotalLength();
 circle.style.strokeDasharray = length;
 circle.style.strokeDashoffset = length;
-console.log(length);
+
+timerInfo.addEventListener("click", () => {
+  shadowBg.classList.add("active");
+  infoBox.classList.add("active");
+});
+faXmark.addEventListener("click", () => {
+  shadowBg.classList.remove("active");
+  infoBox.classList.remove("active");
+});
+
 const timeData = {
   pomodoro: 25,
   shortBreak: 5,
@@ -46,7 +62,6 @@ const timer = (t) => {
           changeMode("long");
         } else {
           timeData.mode = "short";
-
           changeMode("short");
         }
         break;
@@ -103,7 +118,16 @@ const changeMode = (m) => {
     second.innerHTML = "00";
     info.innerHTML = `
       <span>You are now in pomodoro time </span>
-      <i class="fa-solid fa-book"></i>`;
+      <lord-icon
+          src="https://cdn.lordicon.com/qtqvorle.json"
+          trigger="loop"
+          colors="outline:#ffffff,primary:#646e78,secondary:#1e8194,tertiary:#9ce5f4"
+          style="width: 50px; height: 50px"
+        >
+        </lord-icon>
+      `;
+    document.body.style.background = "#2c394b";
+    workSound.play();
   } else if (m === "short") {
     timeData.mode = "short";
     time = timeData.shortBreak * 60;
@@ -111,7 +135,15 @@ const changeMode = (m) => {
     second.innerHTML = "00";
     info.innerHTML = `
       <span>You are now in short break </span>
-      <i class="fa-solid fa-bed"></i> `;
+      <lord-icon
+          src="https://cdn.lordicon.com/kbchswih.json"
+          trigger="loop"
+          colors="outline:#f05454,primary:#1e8194,secondary:#f05454"
+          style="width: 80px; height: 80px"
+        >
+        </lord-icon> `;
+    document.body.style.background = "#5e7aa1";
+    breakSound.play();
   } else if (m === "long") {
     timeData.mode = "long";
     time = timeData.longBreak * 60;
@@ -119,8 +151,17 @@ const changeMode = (m) => {
     second.innerHTML = "00";
     info.innerHTML = `
       <span>You are now in long break </span>
-      <i class="fa-solid fa-bed"></i>`;
+      <lord-icon
+          src="https://cdn.lordicon.com/kbchswih.json"
+          trigger="loop"
+          colors="outline:#f05454,primary:#1e8194,secondary:#f05454"
+          style="width: 80px; height: 80px"
+        >
+        </lord-icon>`;
+    document.body.style.background = "#a3ab78";
+    breakSound.play();
   }
+
   count = time;
 
   return time;
