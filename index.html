@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <link
       rel="stylesheet"
@@ -18,8 +22,28 @@
     <title>Pomodoro Timer</title>
   </head>
   <body>
+    <div class="shadowBg"></div>
     <div id="container">
+      <div class="infoBox">
+        <div class="infoBox-header">
+          <h1>What is Pomodoro Technique?</h1>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+          <li><b>STEP 1:</b> Pick a task</li>
+          <li><b>STEP 2:</b> Set a 25-minute timer</li>
+          <li>
+            <b>STEP 3:</b> Work on tour task full concentration and until the
+            time is up
+          </li>
+          <li><b>STEP 4:</b> Take a 5 minute break</li>
+          <li>
+            <b>STEP 5:</b> Every 4 pomodoros, take a longer 15 - 20 minute break
+          </li>
+        </ul>
+      </div>
       <div class="social">
+        <button class="timer-info"><i class="fa-solid fa-question"></i></button>
         <a href="https://github.com/sinansarikaya/JavaScript-Pomodoro-Timer"
           ><i class="fa-brands fa-github"></i
         ></a>
@@ -41,20 +65,32 @@
           <span id="minute">25</span>:<span id="second">00</span>
         </div>
         <svg width="345" height="345">
-          <circle id="circle1" cx="170" cy="170" r="170"></circle>
-          <circle id="circle2" cx="170" cy="170" r="170"></circle>
+          <circle id="circle1" cx="170" cy="170" r="165"></circle>
+          <circle id="circle2" cx="170" cy="170" r="165"></circle>
         </svg>
       </div>
 
       <div class="info">
         <span>You are now in pomodoro time</span>
-        <i class="fa-solid fa-book"></i>
+
+        <lord-icon
+          src="https://cdn.lordicon.com/qtqvorle.json"
+          trigger="loop"
+          colors="outline:#ffffff,primary:#646e78,secondary:#1e8194,tertiary:#9ce5f4"
+          style="width: 50px; height: 50px"
+        >
+        </lord-icon>
       </div>
       <!-- SES EKLENECEK -->
       <!-- ARKA PLAN RENKLERI -->
 
       <i class="fa-solid actionBtn fa-play"></i>
+      <footer id="copyright">
+        Made with <span style="color: rgb(226, 85, 85)">♥ </span
+        ><b>Sinan Sarıkaya</b>
+      </footer>
     </div>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
     <script src="./js/app.js"></script>
   </body>
 </html>
