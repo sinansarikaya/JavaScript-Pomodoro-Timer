@@ -8,8 +8,8 @@ const shadowBg = document.querySelector(".shadowBg");
 const faXmark = document.querySelector(".fa-xmark");
 const infoBox = document.querySelector(".infoBox");
 
-const workSound = new Audio("../sounds/work.mp3");
-const breakSound = new Audio("../sounds/break.mp3");
+const workSound = new Audio("./sounds/work.mp3");
+const breakSound = new Audio("./sounds/break.mp3");
 
 const circle = document.getElementById("circle2");
 const minute = document.getElementById("minute");
